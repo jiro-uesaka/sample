@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+    <h2>現在のユーザー名：<%= current_user.name %></h2>
+          <li class="nav-item mx-2">
+      <i class="fas fa-home"></i>
+      <%= link_to "Home", root_path %>
+      </li>
+      <li class="nav-item mx-2">
+        <i class="fas fa-sign-out-alt"></i>
+        <%= link_to "About", about_path %>
+      </li>
+      <li class="nav-item mx-2">
+        <i class="fas fa-sign-out-alt"></i>
+        <%= link_to "Setting", configs_index_path %>
+      </li>
+      <li class="nav-item mx-2">
+        <i class="fas fa-sign-out-alt"></i>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li class="nav-item mx-2">
+        <i class="fas fa-home"></i>
+        <%= link_to "Home", root_path %>
+      </li>
+      <li class="nav-item mx-2">
+        <i class="fas fa-link"></i>
+        <%= link_to "About", about_path %>
+      </li>
+      <li class="nav-item mx-2">
+        <i class="fas fa-user-plus"></i>
+        <%= link_to "Sign up", new_user_registration_path %>
+      </li>
+      <li class="nav-item mx-2">
+        <i class="fas fa-sign-in-alt"></i>
+        <%= link_to "Log in", new_user_session_path %>
+      </li>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,968 @@
+<h1>Shifts#show</h1>
+<p>作成日時：<%= @shift.created_at %></p>
+<p>公休数：<%= @shift.shop.holiday %></p>
+<p>店舗名：<%= @shift.shop.name %></p>
+<p>年：<%= @shift.year %></p>
+<p>月：<%= @shift.month %></p>
+
+<table border="1" >
+    <tr>
+        <th>登録済みスタッフ</th>
+        <% case @shift.month %>
+            <% when 2 then %>
+                <% [*1..28].each do |int| %>
+                    <th><%= int %></th>
+                <% end %>
+            <% when (4 or 6 or 9 or 11) then %>
+                <% [*1..30].each do |int| %>
+                    <th><%= int %></th>
+                <% end %>
+            <% else %>
+                <% [*1..31].each do |int| %>
+                    <th><%= int %></th>
+                <% end %>
+        <% end %>
+    </tr>
+    <% @workers.each do |worker| %>
+        <tr>
+            <td rowspan="2"><%= worker.staff.name %></td>
+            <% case @shift.month %>
+                <% when 2 then %>
+                    <td>
+                        <% if worker.day1.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day1).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day2.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day2).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day3.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day3).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day4.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day4).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day5.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day5).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day6.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day6).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day7.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day7).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day8.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day8).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day9.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day9).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day10.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day10).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day11.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day11).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day12.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day12).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day13.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day13).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day14.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day14).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day15.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day15).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day16.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day16).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day17.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day17).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day18.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day18).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day19.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day19).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day20.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day20).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day21.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day21).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day22.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day22).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day23.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day23).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day24.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day24).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day25.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day25).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day26.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day26).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day27.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day27).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day28.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day28).name %>
+                        <% end %>
+                    </td>
+                <% when (4 or 6 or 9 or 11) then %>
+                    <td>
+                        <% if worker.day1.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day1).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day2.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day2).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day3.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day3).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day4.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day4).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day5.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day5).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day6.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day6).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day7.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day7).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day8.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day8).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day9.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day9).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day10.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day10).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day11.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day11).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day12.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day12).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day13.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day13).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day14.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day14).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day15.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day15).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day16.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day16).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day17.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day17).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day18.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day18).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day19.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day19).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day20.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day20).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day21.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day21).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day22.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day22).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day23.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day23).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day24.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day24).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day25.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day25).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day26.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day26).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day27.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day27).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day28.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day28).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day29.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day29).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day30.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day30).name %>
+                        <% end %>
+                    </td>
+                <% else %>
+                    <td>
+                        <% if worker.day1.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day1).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day2.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day2).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day3.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day3).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day4.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day4).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day5.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day5).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day6.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day6).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day7.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day7).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day8.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day8).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day9.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day9).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day10.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day10).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day11.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day11).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day12.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day12).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day13.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day13).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day14.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day14).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day15.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day15).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day16.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day16).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day17.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day17).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day18.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day18).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day19.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day19).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day20.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day20).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day21.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day21).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day22.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day22).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day23.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day23).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day24.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day24).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day25.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day25).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day26.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day26).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day27.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day27).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day28.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day28).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day29.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day29).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day30.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day30).name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if worker.day31.blank? %>
+                            指定なし
+                        <% else %>
+                            <%= @work_patterns.find(worker.day31).name %>
+                        <% end %>
+                    </td>
+            <% end %>
+            <td nowrap><%= link_to "編集する", edit_shift_worker_path(@shift.id, worker.id) %></td>
+        </tr>
+        <tr>
+            <% case @shift.month %>
+                <% when 2 then %>
+                    <td><%= worker.day1_note %></td>
+                    <td><%= worker.day2_note %></td>
+                    <td><%= worker.day3_note %></td>
+                    <td><%= worker.day4_note %></td>
+                    <td><%= worker.day5_note %></td>
+                    <td><%= worker.day6_note %></td>
+                    <td><%= worker.day7_note %></td>
+                    <td><%= worker.day8_note %></td>
+                    <td><%= worker.day9_note %></td>
+                    <td><%= worker.day10_note %></td>
+                    <td><%= worker.day11_note %></td>
+                    <td><%= worker.day12_note %></td>
+                    <td><%= worker.day13_note %></td>
+                    <td><%= worker.day14_note %></td>
+                    <td><%= worker.day15_note %></td>
+                    <td><%= worker.day16_note %></td>
+                    <td><%= worker.day17_note %></td>
+                    <td><%= worker.day18_note %></td>
+                    <td><%= worker.day19_note %></td>
+                    <td><%= worker.day20_note %></td>
+                    <td><%= worker.day21_note %></td>
+                    <td><%= worker.day22_note %></td>
+                    <td><%= worker.day23_note %></td>
+                    <td><%= worker.day24_note %></td>
+                    <td><%= worker.day25_note %></td>
+                    <td><%= worker.day26_note %></td>
+                    <td><%= worker.day27_note %></td>
+                    <td><%= worker.day28_note %></td>
+                <% when (4 or 6 or 9 or 11) then %>
+                    <% if worker.day1_note.blank? %>
+                        <td>　</td>
+                    <% else %>
+                        <td><%= worker.day1_note %></td>
+                    <% end %>
+                    <td><%= worker.day2_note %></td>
+                    <td><%= worker.day3_note %></td>
+                    <td><%= worker.day4_note %></td>
+                    <td><%= worker.day5_note %></td>
+                    <td><%= worker.day6_note %></td>
+                    <td><%= worker.day7_note %></td>
+                    <td><%= worker.day8_note %></td>
+                    <td><%= worker.day9_note %></td>
+                    <td><%= worker.day10_note %></td>
+                    <td><%= worker.day11_note %></td>
+                    <td><%= worker.day12_note %></td>
+                    <td><%= worker.day13_note %></td>
+                    <td><%= worker.day14_note %></td>
+                    <td><%= worker.day15_note %></td>
+                    <td><%= worker.day16_note %></td>
+                    <td><%= worker.day17_note %></td>
+                    <td><%= worker.day18_note %></td>
+                    <td><%= worker.day19_note %></td>
+                    <td><%= worker.day20_note %></td>
+                    <td><%= worker.day21_note %></td>
+                    <td><%= worker.day22_note %></td>
+                    <td><%= worker.day23_note %></td>
+                    <td><%= worker.day24_note %></td>
+                    <td><%= worker.day25_note %></td>
+                    <td><%= worker.day26_note %></td>
+                    <td><%= worker.day27_note %></td>
+                    <td><%= worker.day28_note %></td>
+                    <td><%= worker.day29_note %></td>
+                    <td><%= worker.day30_note %></td>
+                <% else %>
+                    <% if worker.day1_note.blank? %>
+                        <td>　</td>
+                    <% else %>
+                        <td><%= worker.day1_note %></td>
+                    <% end %>
+                    <td><%= worker.day2_note %></td>
+                    <td><%= worker.day3_note %></td>
+                    <td><%= worker.day4_note %></td>
+                    <td><%= worker.day5_note %></td>
+                    <td><%= worker.day6_note %></td>
+                    <td><%= worker.day7_note %></td>
+                    <td><%= worker.day8_note %></td>
+                    <td><%= worker.day9_note %></td>
+                    <td><%= worker.day10_note %></td>
+                    <td><%= worker.day11_note %></td>
+                    <td><%= worker.day12_note %></td>
+                    <td><%= worker.day13_note %></td>
+                    <td><%= worker.day14_note %></td>
+                    <td><%= worker.day15_note %></td>
+                    <td><%= worker.day16_note %></td>
+                    <td><%= worker.day17_note %></td>
+                    <td><%= worker.day18_note %></td>
+                    <td><%= worker.day19_note %></td>
+                    <td><%= worker.day20_note %></td>
+                    <td><%= worker.day21_note %></td>
+                    <td><%= worker.day22_note %></td>
+                    <td><%= worker.day23_note %></td>
+                    <td><%= worker.day24_note %></td>
+                    <td><%= worker.day25_note %></td>
+                    <td><%= worker.day26_note %></td>
+                    <td><%= worker.day27_note %></td>
+                    <td><%= worker.day28_note %></td>
+                    <td><%= worker.day29_note %></td>
+                    <td><%= worker.day30_note %></td>
+                    <td><%= worker.day31_note %></td>
+            <% end %>
+            <td nowrap><%= link_to "削除する", shift_worker_path(@shift.id, worker.id), method: :delete %></td>
+        </tr>
+    <% end %>
+    <tr>
+        <th>新規スタッフ</th>
+    </tr>
+    <%= form_with model: [@shift,@worker] do |f| %>
+        <tr>
+            <td rowspan="2"><%= f.collection_select :staff_id, @staffs, :id, :name %></td>
+            <% case @shift.month %>
+                <% when 2 then %>
+                    <td><%= f.collection_select :day1, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day2, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day3, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day4, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day5, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day6, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day7, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day8, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day9, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day10, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day11, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day12, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day13, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day14, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day15, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day16, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day17, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day18, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day19, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day20, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day21, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day22, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day23, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day24, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day25, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day26, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day27, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day28, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                <% when (4 or 6 or 9 or 11) then %>
+                    <td><%= f.collection_select :day1, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day2, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day3, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day4, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day5, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day6, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day7, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day8, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day9, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day10, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day11, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day12, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day13, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day14, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day15, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day16, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day17, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day18, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day19, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day20, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day21, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day22, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day23, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day24, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day25, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day26, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day27, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day28, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day29, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day30, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                <% else %>
+                    <td><%= f.collection_select :day1, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day2, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day3, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day4, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day5, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day6, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day7, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day8, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day9, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day10, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day11, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day12, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day13, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day14, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day15, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day16, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day17, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day18, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day19, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day20, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day21, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day22, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day23, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day24, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day25, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day26, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day27, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day28, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day29, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day30, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+                    <td><%= f.collection_select :day31, @work_patterns, :id, :name, {include_blank: '指定なし'} %></td>
+            <% end %>
+        </tr>
+        <tr>
+            <% case @shift.month %>
+                <% when 2 then %>
+                    <td><%= f.text_field :day1_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day2_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day3_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day4_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day5_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day6_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day7_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day8_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day9_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day10_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day11_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day12_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day13_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day14_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day15_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day16_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day17_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day18_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day19_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day20_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day21_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day22_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day23_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day24_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day25_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day26_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day27_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day28_note, maxlength: 4 %></td>
+                <% when (4 or 6 or 9 or 11) then %>
+                    <td><%= f.text_field :day1_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day2_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day3_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day4_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day5_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day6_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day7_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day8_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day9_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day10_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day11_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day12_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day13_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day14_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day15_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day16_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day17_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day18_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day19_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day20_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day21_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day22_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day23_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day24_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day25_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day26_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day27_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day28_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day29_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day30_note, maxlength: 4 %></td>
+                <% else %>
+                    <td><%= f.text_field :day1_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day2_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day3_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day4_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day5_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day6_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day7_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day8_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day9_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day10_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day11_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day12_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day13_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day14_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day15_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day16_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day17_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day18_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day19_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day20_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day21_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day22_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day23_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day24_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day25_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day26_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day27_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day28_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day29_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day30_note, maxlength: 4 %></td>
+                    <td><%= f.text_field :day31_note, maxlength: 4 %></td>
+            <% end %>
+        </tr>
+        <tr>
+            <td>
+                <%= f.submit "スタッフを保存する" %>
+            </td>
+        </tr>
+    <% end %>
+</table>

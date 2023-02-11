@@ -1,0 +1,6 @@
+<h1>Staffs#edit</h1>
+<%= form_with model: @staff do |f| %>
+    <span>名前：</span><%= f.text_field :name %>
+    <span>公休数：</span><%= f.select :holiday, [*0..31] %>
+    <%= f.submit "変更する" %>
+<% end %>

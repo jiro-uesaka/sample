@@ -1,0 +1,5 @@
+<h1>WorkPatterns#edit</h1>
+<%= form_with model: @work_pattern do |f| %>
+    <span>名前：</span><%= f.text_field :name %>
+    <%= f.submit "変更する" %>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Shops#edit</h1>
+<%= form_with model: @shop do |f| %>
+    <span>名前：</span><%= f.text_field :name %>
+    <span>最大勤務者数：</span><%= f.number_field :max_worker %>
+    <span>最低勤務者数：</span><%= f.number_field :min_worker %>
+    <span>店舗公休数：</span><%= f.select :holiday, [*0..31] %>
+    <%= f.submit "店舗を登録する" %>
+<% end %>

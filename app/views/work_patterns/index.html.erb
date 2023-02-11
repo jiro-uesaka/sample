@@ -1,0 +1,15 @@
+<h1>WorkPatterns#index</h1>
+<%= flash[:notice] %>
+<table>
+    <% @work_patterns.each do |work_pattern| %>
+    <tr>
+        <td><%= "名前：#{work_pattern.name}"%></td>
+        <td><%= link_to "編集する", edit_work_pattern_path(work_pattern.id) %></td>
+        <td><%= link_to "削除する", work_pattern_path(work_pattern.id), method: :delete %></td>
+    </tr>
+    <% end %>
+</table>
+<%= form_with model: @work_pattern do |f| %>
+    <span>名前：</span><%= f.text_field :name %>
+    <%= f.submit "シフトを追加する" %>
+<% end %>

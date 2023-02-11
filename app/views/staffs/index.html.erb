@@ -1,0 +1,17 @@
+<h1>Staffs#index</h1>
+<%= flash[:notice] %>
+<table>
+    <% @staffs.each do |staff| %>
+    <tr>
+        <td><%= "名前：#{staff.name}"%></td>
+        <td><%= "公休数：#{staff.holiday}"%></td>
+        <td><%= link_to "編集する", edit_staff_path(staff.id) %></td>
+        <td><%= link_to "削除する", staff_path(staff.id), method: :delete %></td>
+    </tr>
+    <% end %>
+</table>
+<%= form_with model: @staff do |f| %>
+    <span>名前：</span><%= f.text_field :name %>
+    <span>公休数：</span><%= f.select :holiday, [*0..31] %>
+    <%= f.submit "スタッフを追加する" %>
+<% end %>

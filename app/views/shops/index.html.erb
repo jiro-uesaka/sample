@@ -1,0 +1,21 @@
+<h1>Shops#index</h1>
+<%= flash[:notice] %>
+<table>
+    <% @shops.each do |shop| %>
+    <tr>
+        <td><%= "名前：#{shop.name}"%></td>
+        <td><%= "最大勤務者数：#{shop.max_worker}"%></td>
+        <td><%= "最低勤務者数：#{shop.min_worker}"%></td>
+        <td><%= "公休数：#{shop.holiday}"%></td>
+        <td><%= link_to "編集する", edit_shop_path(shop.id) %></td>
+        <td><%= link_to "削除する", shop_path(shop.id), method: :delete %></td>
+    </tr>
+    <% end %>
+</table>
+<%= form_with model: @shop do |f| %>
+    <span>名前：</span><%= f.text_field :name %>
+    <span>最大勤務者数：</span><%= f.number_field :max_worker, min: 0 %>
+    <span>最低勤務者数：</span><%= f.number_field :min_worker, min: 0 %>
+    <span>店舗公休数：</span><%= f.select :holiday, [*0..31] %>
+    <%= f.submit "店舗を登録する" %>
+<% end %>

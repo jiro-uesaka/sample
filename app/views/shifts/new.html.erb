@@ -1,0 +1,16 @@
+<h1>Shifts#new</h1>
+<%= Time.now.year + 1 %>
+<%= Time.now.month %>
+<%= form_with model: @shift do |f| %>
+    <span>店舗選択：</span><%= f.collection_select :shop_id, @shops, :id, :name %>
+    <span>年を選択：</span><%= f.select :year, [Time.now.year, (Time.now.year + 1)] %>
+    <span>月を選択：</span><%= f.select :month, [*1..12] %>
+    <%= f.submit "シフトを作成する" %>
+<% end %>
+<%= form_with model: @shop do |f| %>
+    <span>名前：</span><%= f.text_field :name %>
+    <span>最大勤務者数：</span><%= f.number_field :max_worker, min: 0 %>
+    <span>最低勤務者数：</span><%= f.number_field :min_worker, min: 0 %>
+    <span>店舗公休数：</span><%= f.select :holiday, [*0..31] %>
+    <%= f.submit "店舗を登録する" %>
+<% end %>
