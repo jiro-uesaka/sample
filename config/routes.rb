@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   root to: "homes#top"
   resources :shifts, only: [:new, :show, :create, :edit, :index, :update, :destroy] do
     resources :workers, only: [:update, :create, :edit, :destroy]
+    resource :headcount, only: [:update, :edit]
   end
-  get 'shifts/preview', as: "preview"
+  get "shifts/:id/calculate", to: 'shifts#calculate', as: "calculate"
+  get 'shifts/:id/preview', to: 'shifts#preview', as: "preview"
   # get 'shifts/new'
   # get 'shifts/index'
   # get 'shifts/show'

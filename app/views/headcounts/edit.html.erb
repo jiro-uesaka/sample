@@ -1,0 +1,108 @@
+<h1>Headcounts#edit</h1>
+<%= form_with model: [@shift,@headcount] do |f| %>
+    <table border="1" >
+        <tr>
+            <% case @shift.month %>
+                <% when 2 then %>
+                    <% [*1..28].each do |int| %>
+                        <th><%= int %></th>
+                    <% end %>
+                <% when 4 , 6 , 9 , 11 then %>
+                    <% [*1..30].each do |int| %>
+                        <th><%= int %></th>
+                    <% end %>
+                <% else %>
+                    <% [*1..31].each do |int| %>
+                        <th><%= int %></th>
+                    <% end %>
+            <% end %>
+        </tr>
+        <tr>
+            <th>最大人数</th>
+            <td><%= f.number_field :day1_max, min: 0 %></td>
+            <td><%= f.number_field :day2_max, min: 0 %></td>
+            <td><%= f.number_field :day3_max, min: 0 %></td>
+            <td><%= f.number_field :day4_max, min: 0 %></td>
+            <td><%= f.number_field :day5_max, min: 0 %></td>
+            <td><%= f.number_field :day6_max, min: 0 %></td>
+            <td><%= f.number_field :day7_max, min: 0 %></td>
+            <td><%= f.number_field :day8_max, min: 0 %></td>
+            <td><%= f.number_field :day9_max, min: 0 %></td>
+            <td><%= f.number_field :day10_max, min: 0 %></td>
+            <td><%= f.number_field :day11_max, min: 0 %></td>
+            <td><%= f.number_field :day12_max, min: 0 %></td>
+            <td><%= f.number_field :day13_max, min: 0 %></td>
+            <td><%= f.number_field :day14_max, min: 0 %></td>
+            <td><%= f.number_field :day15_max, min: 0 %></td>
+            <td><%= f.number_field :day16_max, min: 0 %></td>
+            <td><%= f.number_field :day17_max, min: 0 %></td>
+            <td><%= f.number_field :day18_max, min: 0 %></td>
+            <td><%= f.number_field :day19_max, min: 0 %></td>
+            <td><%= f.number_field :day20_max, min: 0 %></td>
+            <td><%= f.number_field :day21_max, min: 0 %></td>
+            <td><%= f.number_field :day22_max, min: 0 %></td>
+            <td><%= f.number_field :day23_max, min: 0 %></td>
+            <td><%= f.number_field :day24_max, min: 0 %></td>
+            <td><%= f.number_field :day25_max, min: 0 %></td>
+            <td><%= f.number_field :day26_max, min: 0 %></td>
+            <td><%= f.number_field :day27_max, min: 0 %></td>
+            <td><%= f.number_field :day28_max, min: 0 %></td>
+            <% case @shift.month %>
+                <% when 4 , 6 , 9 , 11 then %>
+                    <td><%= f.number_field :day29_max, min: 0 %></td>
+                    <td><%= f.number_field :day30_max, min: 0 %></td>
+                <% when 1 , 3 , 5 , 7 , 8 , 12 then %>
+                    <td><%= f.number_field :day29_max, min: 0 %></td>
+                    <td><%= f.number_field :day30_max, min: 0 %></td>
+                    <td><%= f.number_field :day31_max, min: 0 %></td>
+                <% else %>
+            <% end %>
+        </tr>
+        <tr>
+            <th>最低人数</th>
+            <td><%= f.number_field :day1_min, min: 0 %></td>
+            <td><%= f.number_field :day2_min, min: 0 %></td>
+            <td><%= f.number_field :day3_min, min: 0 %></td>
+            <td><%= f.number_field :day4_min, min: 0 %></td>
+            <td><%= f.number_field :day5_min, min: 0 %></td>
+            <td><%= f.number_field :day6_min, min: 0 %></td>
+            <td><%= f.number_field :day7_min, min: 0 %></td>
+            <td><%= f.number_field :day8_min, min: 0 %></td>
+            <td><%= f.number_field :day9_min, min: 0 %></td>
+            <td><%= f.number_field :day10_min, min: 0 %></td>
+            <td><%= f.number_field :day11_min, min: 0 %></td>
+            <td><%= f.number_field :day12_min, min: 0 %></td>
+            <td><%= f.number_field :day13_min, min: 0 %></td>
+            <td><%= f.number_field :day14_min, min: 0 %></td>
+            <td><%= f.number_field :day15_min, min: 0 %></td>
+            <td><%= f.number_field :day16_min, min: 0 %></td>
+            <td><%= f.number_field :day17_min, min: 0 %></td>
+            <td><%= f.number_field :day18_min, min: 0 %></td>
+            <td><%= f.number_field :day19_min, min: 0 %></td>
+            <td><%= f.number_field :day20_min, min: 0 %></td>
+            <td><%= f.number_field :day21_min, min: 0 %></td>
+            <td><%= f.number_field :day22_min, min: 0 %></td>
+            <td><%= f.number_field :day23_min, min: 0 %></td>
+            <td><%= f.number_field :day24_min, min: 0 %></td>
+            <td><%= f.number_field :day25_min, min: 0 %></td>
+            <td><%= f.number_field :day26_min, min: 0 %></td>
+            <td><%= f.number_field :day27_min, min: 0 %></td>
+            <td><%= f.number_field :day28_min, min: 0 %></td>
+            <% case @shift.month %>
+                <% when 4 , 6 , 9 , 11 then %>
+                    <td><%= f.number_field :day29_min, min: 0 %></td>
+                    <td><%= f.number_field :day30_min, min: 0 %></td>
+                <% when 1 , 3 , 5 , 7 , 8 , 12 then %>
+                    <td><%= f.number_field :day29_min, min: 0 %></td>
+                    <td><%= f.number_field :day30_min, min: 0 %></td>
+                    <td><%= f.number_field :day31_min, min: 0 %></td>
+                <% else %>
+            <% end %>
+        </tr>
+        <tr>
+            <td>
+                <%= f.submit "変更する" %>
+            </td>
+        </tr>
+    </table>
+<% end %>

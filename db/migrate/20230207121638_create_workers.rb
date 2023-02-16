@@ -3,6 +3,7 @@ class CreateWorkers < ActiveRecord::Migration[6.1]
     create_table :workers do |t|
       t.integer :shift_id
       t.integer :staff_id
+      t.integer :holiday, default: 0
       t.integer :day1
       t.string :day1_note
       t.integer :day2

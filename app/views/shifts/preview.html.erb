@@ -1,2 +1,51 @@
 <h1>Shifts#preview</h1>
-<p>Find me in app/views/shifts/preview.html.erb</p>
+<%= flash[:notice] %>
+<table border="1">
+    <% @workers.each do |worker| %>
+    <% num = 0 %>
+    <% rest = 0 %>
+    <tr>
+        <th></th>
+            <% case @shift.month %>
+                <% when 2 then %>
+                    <% [*1..28].each do |int| %>
+                        <th><%= int %></th>
+                        <% num = 28 %>
+                    <% end %>
+                <% when 4 , 6 , 9 , 11 then %>
+                    <% [*1..30].each do |int| %>
+                        <th><%= int %></th>
+                        <% num = 30 %>
+                    <% end %>
+                <% else %>
+                    <% [*1..31].each do |int| %>
+                        <th><%= int %></th>
+                        <% num = 31 %>
+                    <% end %>
+            <% end %>
+        </tr>
+        <tr>
+            <th><%= worker.staff.name %></th>
+            <% day = 1 %>
+            <% while day <= num do %>
+                <td nowrap>
+                    <%= @work_patterns.find(worker.send("day#{day}")).name %>
+                    <% if worker.send("day#{day}") == 1 || worker.send("day#{day}") == 3 %>
+                        <% rest += 1 %>
+                    <% end %>
+                    <% day += 1 %>
+                </td>
+            <% end %>
+            <td nowrap><%= link_to "編集する", edit_shift_worker_path(@shift.id, worker.id) %></td>
+        </tr>
+        <tr>
+            <th nowrap>休日数：<%= rest %></th>
+            <% day = 1 %>
+            <% while day <= num do %>
+                    <td><% if worker.send("day#{day}_note") == "" %>　　　<% else %><%= worker.send("day#{day}_note") %><% end %></td>
+                <% day += 1 %>
+            <% end %>
+            <td nowrap><%= link_to "削除する", shift_worker_path(@shift.id, worker.id), method: :delete %></td>
+        </tr>
+    <% end %>
+</table>
